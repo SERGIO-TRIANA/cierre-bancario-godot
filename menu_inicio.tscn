@@ -8,13 +8,15 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_wkv36")
+escena_nivel = "uid://d17rwubnij8j1"
 
 [node name="Fondo" type="ColorRect" parent="." unique_id=1251408680]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1112.0
+offset_left = 8.0
+offset_right = 1152.0
 offset_bottom = 600.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -27,30 +29,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 324.0
-offset_top = 164.0
-offset_right = 832.5
-offset_bottom = 457.0
+offset_left = 180.0
+offset_top = 148.0
+offset_right = 916.0
+offset_bottom = 428.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Titulo" type="Label" parent="PanelPrincipal" unique_id=1199086639]
 layout_mode = 2
-text = "CIERRE BANCARIO"
+theme_override_font_sizes/font_size = 46
+text = "--- CIERRE BANCARIO ---
+
+"
 horizontal_alignment = 1
 
 [node name="Subtitulo" type="Label" parent="PanelPrincipal" unique_id=2000432562]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Sobrevive al horario extendido 
-y cierra la bóveda a tiempo."
+y cierra la bóveda a tiempo.
+
+
+
+"
 horizontal_alignment = 1
 
 [node name="BotonJugar" type="Button" parent="PanelPrincipal" unique_id=484359967]
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 text = "Iniciar Turno"
 
 [node name="BotonInstrucciones" type="Button" parent="PanelPrincipal" unique_id=586743332]
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 text = "Cómo Jugar"
 
 [node name="PanelInstrucciones" type="Panel" parent="." unique_id=847548219]
@@ -58,22 +70,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 240.0
-offset_top = 120.0
-offset_right = 920.0
-offset_bottom = 480.0
+offset_left = 208.0
+offset_top = 104.0
+offset_right = 912.0
+offset_bottom = 504.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextoInstrucciones" type="RichTextLabel" parent="PanelInstrucciones" unique_id=1424219772]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 24.0
-offset_right = 616.0
-offset_bottom = 336.0
+offset_left = 88.0
+offset_top = 56.0
+offset_right = 624.0
+offset_bottom = 368.0
 theme_override_font_sizes/normal_font_size = 18
 text = "CONTROLES: Muévete con Flechas o WASD.
 OBJETIVO: Completa las 8 tareas del cierre bancario antes de que el reloj llegue a 00:00. Sigue el marcador verde (!) que aparece en la sala indicada arriba.
+
 CUIDADO EN LAS SALAS:
 - Clientes (Salas 7, 8 y 9): Evita su cono rojo.
 - Asesores (Sala 5): Si les sale \"?\", te harán trivia.
@@ -84,9 +97,9 @@ horizontal_alignment = 1
 
 [node name="BotonVolver" type="Button" parent="PanelInstrucciones" unique_id=935328230]
 layout_mode = 0
-offset_left = 336.0
-offset_top = 352.0
-offset_right = 393.0
-offset_bottom = 383.0
-theme_override_font_sizes/font_size = 8
+offset_left = 288.0
+offset_top = 336.0
+offset_right = 400.0
+offset_bottom = 408.0
+theme_override_font_sizes/font_size = 16
 text = "Volver"

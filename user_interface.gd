@@ -9,9 +9,7 @@ extends Control
 @onready var boton_volver: Button = $PanelInstrucciones/BotonVolver
 
 func _ready() -> void:
-	# Aseguramos que el juego no arranque pausado si venimos de reiniciar
 	get_tree().paused = false
-	
 	panel_principal.show()
 	panel_instrucciones.hide()
 	
@@ -20,12 +18,18 @@ func _ready() -> void:
 	boton_volver.pressed.connect(_on_boton_volver_pressed)
 
 func _on_boton_jugar_pressed() -> void:
+	GestorAudio.reproducir_sfx("boton")
+	GestorAudio.iniciar_musica()
 	get_tree().change_scene_to_file(escena_nivel)
 
 func _on_boton_instrucciones_pressed() -> void:
+	GestorAudio.reproducir_sfx("boton")
 	panel_principal.hide()
 	panel_instrucciones.show()
 
 func _on_boton_volver_pressed() -> void:
+	GestorAudio.reproducir_sfx("boton")
 	panel_instrucciones.hide()
 	panel_principal.show()
+	
+	

@@ -7,6 +7,7 @@ signal clave_boveda_correcta
 @onready var texto_tiempo: Label = $PanelMision/TextoTiempo
 @onready var texto_tarea: Label = $PanelMision/TextoTarea
 @onready var texto_clave: Label = $PanelMision/TextoClave
+@onready var boton_sonido: Button = $BotonSonido
 
 @onready var panel_clave: Panel = $PanelClave
 @onready var campo_clave: LineEdit = $PanelClave/CampoClave
@@ -47,15 +48,26 @@ func inicializar_ui_tareas() -> void:
 	# Garantiza que la UI siga respondiendo cuando el juego se pausa
 	panel_clave.process_mode = Node.PROCESS_MODE_ALWAYS
 	panel_fin.process_mode = Node.PROCESS_MODE_ALWAYS
+	boton_sonido.process_mode = Node.PROCESS_MODE_ALWAYS
+	boton_sonido.focus_mode = Control.FOCUS_NONE
 	
 	panel_clave.hide()
 	panel_fin.hide()
 	texto_clave.text = ""
+	boton_sonido.text = "Sonido: OFF" if GestorAudio.silenciado else "Sonido: ON"
 	
 	boton_confirmar_clave.pressed.connect(_on_confirmar_clave_pressed)
 	campo_clave.text_submitted.connect(func(_texto: String) -> void: _on_confirmar_clave_pressed())
 	boton_reintentar.pressed.connect(_on_reintentar_pressed)
 	boton_menu.pressed.connect(_on_menu_pressed)
+	
+	# Conexión en el lugar correcto (al iniciar el HUD)
+	boton_sonido.pressed.connect(func() -> void:
+		var mudo: bool = GestorAudio.alternar_silencio()
+		boton_sonido.text = "Sonido: OFF" if mudo else "Sonido: ON"
+		if not mudo:
+			GestorAudio.reproducir_sfx("boton")
+	)
 
 func actualizar_tiempos(tiempo_cierre: float, tiempo_tarea: float) -> void:
 	var c_tot: int = maxi(int(ceil(tiempo_cierre)), 0)
@@ -91,7 +103,7 @@ func mostrar_pantalla_fin(gano: bool, tiempo_restante: float, motivo_derrota: St
 	else:
 		titulo_fin.text = "¡SE ACABÓ EL TIEMPO!"
 		if motivo_derrota != "":
-			mensaje_fin.text = motivo_derrota
+			mensaje_fin.text = motivo_derrota	
 		else:
 			mensaje_fin.text = "No lograste cerrar la bóveda antes del límite."
 	panel_fin.show()
@@ -101,12 +113,18 @@ func _on_confirmar_clave_pressed() -> void:
 		panel_clave.hide()
 		clave_boveda_correcta.emit()
 	else:
+		GestorAudio.reproducir_sfx("error")
 		mensaje_clave.text = "Clave incorrecta. Revisa la nota de tu correo."
 
 func _on_reintentar_pressed() -> void:
+	GestorAudio.reproducir_sfx("boton")
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _on_menu_pressed() -> void:
+	GestorAudio.reproducir_sfx("boton")
+	GestorAudio.detener_musica()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://menu_inicio.tscn")
+	
+	

@@ -27,7 +27,7 @@ color = Color(0.78047943, 0, 0.18920437, 1)
 [node name="PanelMision" type="Panel" parent="." unique_id=368506372]
 offset_left = 193.0
 offset_top = 1.0
-offset_right = 1016.0
+offset_right = 1019.0
 offset_bottom = 91.0
 
 [node name="TextoTiempo" type="Label" parent="PanelMision" unique_id=2063844858]
@@ -48,7 +48,7 @@ autowrap_mode = 2
 
 [node name="TextoClave" type="Label" parent="PanelMision" unique_id=1819708496]
 layout_mode = 0
-offset_left = 199.0
+offset_left = 363.0
 offset_right = 800.0
 offset_bottom = 23.0
 text = "\"\""
@@ -128,3 +128,11 @@ offset_top = 350.0
 offset_right = 533.0
 offset_bottom = 381.0
 text = "Menú Principal"
+
+[node name="BotonSonido" type="Button" parent="." unique_id=657557432]
+process_mode = 3
+offset_left = 1048.0
+offset_top = 4.0
+offset_right = 1143.0
+offset_bottom = 35.0
+text = "Sonido: ON"

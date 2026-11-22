@@ -26,12 +26,17 @@ func mostrar_pregunta(datos_pregunta: Dictionary):
 	boton2.text = datos_pregunta["opciones"][1]
 	boton3.text = datos_pregunta["opciones"][2]
 	respuesta_correcta_actual = datos_pregunta["respuesta_correcta"]
+	GestorAudio.reproducir_sfx("alerta")
+	GestorAudio.activar_modo_trivia(true)
 	show()
+	
 
 func _on_boton_presionado(indice_boton: int):
 	if indice_boton == respuesta_correcta_actual:
 		print("¡Correcto! Puedes seguir trabajando.")
 		# Aquí despausaremos el juego y esconderemos el menú
+		GestorAudio.reproducir_sfx("acierto")
+		GestorAudio.activar_modo_trivia(false)
 		get_tree().paused = false
 		hide()
 	else:
@@ -39,4 +44,5 @@ func _on_boton_presionado(indice_boton: int):
 		# Aquí implementaremos el castigo (volver al inicio del nivel)
 		# Por ahora, solo despausamos y escondemos
 		get_tree().paused = false
+		GestorAudio.reproducir_sfx("error")
 		hide()

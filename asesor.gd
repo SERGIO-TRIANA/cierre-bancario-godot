@@ -218,6 +218,7 @@ func _on_animacion_terminada(anim_name: StringName) -> void:
 
 func _on_zona_pregunta_body_entered(body: Node2D) -> void:
 	if body.name == "Coordinador" and estado_actual == Estado.DEAMBULANDO:
+		GestorAudio.reproducir_sfx("puerta")
 		empezar_a_volver()
 		get_tree().paused = true
 		

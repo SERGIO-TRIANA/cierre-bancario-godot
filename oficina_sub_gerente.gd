@@ -10,6 +10,7 @@ var empuje_jugador: Vector2 = Vector2(-50, 0)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Coordinador":
+		GestorAudio.reproducir_sfx("puerta")
 		get_tree().paused = true
 		
 		var tween = create_tween()

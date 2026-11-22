@@ -6,10 +6,11 @@ extends Area2D
 @export var nueva_posicion_camara: Vector2 
 
 # Lo dejamos fijo en -32 para que empuje hacia arriba al jugador
-var empuje_jugador: Vector2 = Vector2(80, 0) 
+var empuje_jugador: Vector2 = Vector2(40, 0) 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Coordinador":
+		GestorAudio.reproducir_sfx("puerta")
 		get_tree().paused = true
 		
 		var tween = create_tween()

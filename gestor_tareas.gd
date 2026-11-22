@@ -1,7 +1,7 @@
 extends Node
 
-@export var tiempo_limite_cierre: float = 120.0 # Tiempo total para cerrar la sucursal (2 min)
-@export var tiempo_por_tarea: float = 60.0      # Tiempo máximo por cada tarea (1 min)
+@export var tiempo_limite_cierre: float = 240.0 # 4 minutos totales para cerrar la sucursal
+@export var tiempo_por_tarea: float = 60.0      # 1 minuto por cada tarea
 @export var clave_boveda: String = "4820"
 
 var tareas: Array[Dictionary] = [
@@ -19,13 +19,19 @@ var indice_actual: int = 0
 var tiempo_restante_cierre: float = 0.0
 var tiempo_restante_tarea: float = 0.0
 var juego_activo: bool = false
+var urgencia_activada: bool = false
 var hud: CanvasLayer = null
+var menu_trivia: Control = null
 
 func _ready() -> void:
+	# Permite que el tiempo siga corriendo aunque una trivia pause el juego
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	tiempo_restante_cierre = tiempo_limite_cierre
 	hud = get_node_or_null("/root/NivelBanco/CanvasLayer/HUD")
 	if hud == null:
 		hud = get_node_or_null("/root/NivelBanco/HUD")
+	menu_trivia = get_node_or_null("/root/NivelBanco/CanvasLayer/MenuTrivia")
 	
 	call_deferred("iniciar_sistema")
 
@@ -37,6 +43,10 @@ func iniciar_sistema() -> void:
 		hud.clave_boveda_correcta.connect(_on_clave_boveda_correcta)
 	
 	juego_activo = true
+	
+	urgencia_activada = false
+	GestorAudio.activar_urgencia(false)
+	GestorAudio.iniciar_musica()
 	activar_tarea_actual()
 
 func _process(delta: float) -> void:
@@ -48,20 +58,27 @@ func _process(delta: float) -> void:
 	
 	if hud != null:
 		hud.actualizar_tiempos(tiempo_restante_cierre, tiempo_restante_tarea)
+	if tiempo_restante_cierre <= 60.0 and not urgencia_activada:
+		urgencia_activada = true
+		GestorAudio.activar_urgencia(true)
 	
 	if tiempo_restante_cierre <= 0.0:
-		juego_activo = false
-		if hud != null:
-			hud.mostrar_pantalla_fin(false, 0.0, "Se acabó el tiempo límite para cerrar la sucursal.")
+		terminar_por_tiempo("Se acabó el tiempo límite de 4 minutos para cerrar la sucursal.")
 	elif tiempo_restante_tarea <= 0.0:
-		juego_activo = false
-		if hud != null:
-			hud.mostrar_pantalla_fin(false, 0.0, "Se acabó el minuto para completar la tarea actual.")
+		terminar_por_tiempo("Se acabó el minuto para completar la tarea actual.")
+
+func terminar_por_tiempo(motivo: String) -> void:
+	juego_activo = false
+	GestorAudio.activar_modo_trivia(false)
+	GestorAudio.detener_musica()
+	GestorAudio.reproducir_sfx("derrota")
+	if menu_trivia != null:
+		menu_trivia.hide()
+	if hud != null:
+		hud.mostrar_pantalla_fin(false, 0.0, motivo)
 
 func activar_tarea_actual() -> void:
 	var tarea_actual: Dictionary = tareas[indice_actual]
-	
-	# Reinicia el reloj de la tarea a 1 min (sin superar lo que quede de cierre global)
 	tiempo_restante_tarea = minf(tiempo_por_tarea, tiempo_restante_cierre)
 	
 	for zona in get_tree().get_nodes_in_group("zonas_tarea"):
@@ -79,13 +96,19 @@ func _on_tarea_tocada(id: String) -> void:
 		hud.mostrar_clave_obtenida(clave_boveda)
 	
 	if id == "clave_boveda" and hud != null:
+		GestorAudio.reproducir_sfx("alerta")
+		GestorAudio.activar_modo_trivia(true)
 		hud.abrir_panel_clave()
 		return
 		
+	GestorAudio.reproducir_sfx("tarea")
 	avanzar_siguiente_tarea()
 
 func _on_clave_boveda_correcta() -> void:
 	juego_activo = false
+	GestorAudio.activar_modo_trivia(false)
+	GestorAudio.detener_musica()
+	GestorAudio.reproducir_sfx("victoria")
 	if hud != null:
 		hud.mostrar_pantalla_fin(true, tiempo_restante_cierre)
 
