@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cafhy6l3teecf"]
+
+[ext_resource type="Script" uid="uid://byuqv4y1qm3b1" path="res://zona_tarea.gd" id="1_4ef5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otrat"]
+size = Vector2(16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_otrat"]
+font_size = 10
+font_color = Color(1, 1, 0.011764706, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ZonaTarea" type="Area2D" unique_id=425455704]
+collision_mask = 3
+script = ExtResource("1_4ef5h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1836315543]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_otrat")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1403615751]
+offset_right = 16.0
+offset_bottom = 16.0
+color = Color(0.13333334, 1, 0.33333334, 0.6)
+
+[node name="Label" type="Label" parent="." unique_id=1911604802]
+offset_right = 3.0
+offset_bottom = 14.0
+text = "  !"
+label_settings = SubResource("LabelSettings_otrat")

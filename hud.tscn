@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://bgdv2b0w7v512"]
+
+[ext_resource type="Texture2D" uid="uid://ccgrow3w1ejad" path="res://Map/mapa2.jpg" id="1_37p78"]
+[ext_resource type="Script" uid="uid://njjynwhyjcnw" path="res://hud.gd" id="1_64ctp"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1501206221]
+script = ExtResource("1_64ctp")
+
+[node name="FondoMapa" type="Panel" parent="." unique_id=1678109591]
+offset_left = -1.0
+offset_right = 193.0
+offset_bottom = 141.0
+
+[node name="MapaImagen" type="Sprite2D" parent="." unique_id=60004875]
+position = Vector2(95.15625, 67.14844)
+scale = Vector2(0.18328857, 0.17216092)
+texture = ExtResource("1_37p78")
+
+[node name="Indicador" type="ColorRect" parent="MapaImagen" unique_id=1379941281]
+anchors_preset = -1
+offset_left = -355.48447
+offset_top = -18.28775
+offset_right = -311.67703
+offset_bottom = 48.7807
+color = Color(0.78047943, 0, 0.18920437, 1)
+
+[node name="PanelMision" type="Panel" parent="." unique_id=368506372]
+offset_left = 193.0
+offset_top = 1.0
+offset_right = 1016.0
+offset_bottom = 91.0
+
+[node name="TextoTiempo" type="Label" parent="PanelMision" unique_id=2063844858]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 41.0
+offset_bottom = 23.0
+text = "03:00"
+
+[node name="TextoTarea" type="Label" parent="PanelMision" unique_id=1146789711]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 34.0
+offset_right = 822.0
+offset_bottom = 86.0
+text = "Tarea 1/8"
+autowrap_mode = 2
+
+[node name="TextoClave" type="Label" parent="PanelMision" unique_id=1819708496]
+layout_mode = 0
+offset_left = 199.0
+offset_right = 800.0
+offset_bottom = 23.0
+text = "\"\""
+
+[node name="PanelClave" type="Panel" parent="." unique_id=76790316]
+process_mode = 3
+offset_left = 337.0
+offset_top = 182.0
+offset_right = 844.0
+offset_bottom = 505.0
+
+[node name="TituloClave" type="Label" parent="PanelClave" unique_id=1460818646]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 19.0
+offset_right = 353.0
+offset_bottom = 42.0
+text = "Ingresa la clave de la Bóveda:"
+
+[node name="CampoClave" type="LineEdit" parent="PanelClave" unique_id=252673257]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 109.0
+offset_right = 277.5
+offset_bottom = 140.0
+
+[node name="MensajeClave" type="Label" parent="PanelClave" unique_id=1343414096]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="BotonConfirmarClave" type="Button" parent="PanelClave" unique_id=1126075118]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 205.0
+offset_right = 312.0
+offset_bottom = 236.0
+text = "Cerrar Bóveda"
+
+[node name="PanelFin" type="Panel" parent="." unique_id=2031272895]
+process_mode = 3
+offset_left = 145.0
+offset_top = 151.0
+offset_right = 1039.0
+offset_bottom = 550.0
+
+[node name="TituloFin" type="Label" parent="PanelFin" unique_id=810577016]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 22.0
+offset_right = 556.0
+offset_bottom = 45.0
+text = "¡SE ACABÓ EL TIEMPO!"
+autowrap_mode = 2
+
+[node name="MensajeFin" type="Label" parent="PanelFin" unique_id=934104527]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 71.0
+offset_right = 712.0
+offset_bottom = 283.0
+autowrap_mode = 2
+
+[node name="BotonReintentar" type="Button" parent="PanelFin" unique_id=2005711342]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 302.0
+offset_right = 524.0
+offset_bottom = 333.0
+text = "Volver a jugar"
+
+[node name="BotonMenu" type="Button" parent="PanelFin" unique_id=812124517]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 350.0
+offset_right = 533.0
+offset_bottom = 381.0
+text = "Menú Principal"

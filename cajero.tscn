@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://dwxcc3jk86nre"]
+
+[ext_resource type="Script" uid="uid://cnwqo24jsbect" path="res://cajero.gd" id="1_jpmfx"]
+[ext_resource type="Texture2D" uid="uid://ctv1fhj2veox" path="res://Characters/Amelia/Amelia_16x16.png" id="1_rpd4a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpd4a"]
+size = Vector2(5, 13)
+
+[sub_resource type="Animation" id="Animation_jpmfx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [42]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(18, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hc0y2"]
+resource_name = "drinking"
+length = 2.5000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.56666666, 0.8666667, 1.1666666, 1.4333333, 1.7666667, 2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [144, 145, 146, 147, 148, 149, 150, 151, 152]
+}
+
+[sub_resource type="Animation" id="Animation_1he4s"]
+resource_name = "idle_down"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.33333334, 0.6333333, 0.93333334, 1.2666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [43, 44, 45, 46, 47]
+}
+
+[sub_resource type="Animation" id="Animation_jse6i"]
+resource_name = "walk_down"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.73333335, 0.96666664, 1.2666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [66, 67, 68, 69, 70, 71]
+}
+
+[sub_resource type="Animation" id="Animation_0e4qo"]
+resource_name = "walk_left"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.43333334, 0.6666667, 0.96666664, 1.2666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63, 64, 65]
+}
+
+[sub_resource type="Animation" id="Animation_7v1wy"]
+resource_name = "walk_right"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.56666666, 0.8, 1.0333333, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52, 53]
+}
+
+[sub_resource type="Animation" id="Animation_etl0o"]
+resource_name = "walk_up"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.53333336, 0.8, 1.0333333, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [54, 55, 56, 57, 58, 59]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3anbf"]
+_data = {
+&"RESET": SubResource("Animation_jpmfx"),
+&"drinking": SubResource("Animation_hc0y2"),
+&"idle_down": SubResource("Animation_1he4s"),
+&"walk_down": SubResource("Animation_jse6i"),
+&"walk_left": SubResource("Animation_0e4qo"),
+&"walk_right": SubResource("Animation_7v1wy"),
+&"walk_up": SubResource("Animation_etl0o")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_4mnnu"]
+font_size = 12
+font_color = Color(1, 0.26666668, 0.07058824, 1)
+
+[node name="Cajero" type="CharacterBody2D" unique_id=218022320]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_jpmfx")
+
+[node name="TimerAccion" type="Timer" parent="." unique_id=198873452]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=18425302]
+texture = ExtResource("1_rpd4a")
+hframes = 24
+vframes = 7
+frame = 42
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1161110800]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_rpd4a")
+
+[node name="TimerEstado" type="Timer" parent="." unique_id=1313249793]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=719983056]
+libraries/ = SubResource("AnimationLibrary_3anbf")
+
+[node name="RotadorVision" type="Node2D" parent="." unique_id=890750642]
+
+[node name="ZonaCaptura" type="Area2D" parent="RotadorVision" unique_id=649519573]
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotadorVision/ZonaCaptura" unique_id=1819437326]
+polygon = PackedVector2Array(40, -16, 40, 0, 40, 16, 23.654457, 9.461784, 0, 0, 24, -8)
+
+[node name="Polygon2D" type="Polygon2D" parent="RotadorVision" unique_id=209142072]
+color = Color(1, 0.16470589, 0.16470589, 0.45882353)
+polygon = PackedVector2Array(0, 0, 16, -8, 40, -16, 48, 0, 40, 16, 16, 8)
+
+[node name="IconoDuda" type="Label" parent="." unique_id=281551580]
+offset_left = -8.0
+offset_top = -24.0
+offset_right = 8.0
+offset_bottom = -7.0
+text = "  ?"
+label_settings = SubResource("LabelSettings_4mnnu")

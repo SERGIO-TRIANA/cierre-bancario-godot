@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://ds4yjgo4n5erk"]
+
+[ext_resource type="Script" uid="uid://dy7koltlnwlgm" path="res://cliente_pregunton.gd" id="1_mgv5n"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rijfg"]
+load_path = "res://.godot/imported/Adam_16x16.png-bdb63ab9b9060319c3dc6b0a4a690ad9.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otrat"]
+size = Vector2(6, 4)
+
+[sub_resource type="Animation" id="Animation_mgv5n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [48]
+}
+
+[sub_resource type="Animation" id="Animation_y2yvw"]
+resource_name = "walk_down"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [66, 67, 68, 69, 70, 71]
+}
+
+[sub_resource type="Animation" id="Animation_ptbke"]
+resource_name = "walk_left"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.43333334, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63, 64, 65]
+}
+
+[sub_resource type="Animation" id="Animation_x62ho"]
+resource_name = "walk_right"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333333, 0.33333334, 0.43333334, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52, 53]
+}
+
+[sub_resource type="Animation" id="Animation_rijfg"]
+resource_name = "walk_up"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.19999999, 0.3, 0.39999998, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [54, 55, 56, 57, 58, 59]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ptbke"]
+_data = {
+&"RESET": SubResource("Animation_mgv5n"),
+&"walk_down": SubResource("Animation_y2yvw"),
+&"walk_left": SubResource("Animation_ptbke"),
+&"walk_right": SubResource("Animation_x62ho"),
+&"walk_up": SubResource("Animation_rijfg")
+}
+
+[node name="ClientePregunton" type="CharacterBody2D" unique_id=1110961896]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_mgv5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=756144695]
+texture = SubResource("CompressedTexture2D_rijfg")
+hframes = 24
+vframes = 7
+frame = 48
+
+[node name="Timer" type="Timer" parent="." unique_id=2022472828]
+wait_time = 2.0
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2123520534]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_otrat")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1103186157]
+libraries/ = SubResource("AnimationLibrary_ptbke")
+
+[node name="RotadorVision" type="Node2D" parent="." unique_id=1592402613]
+position = Vector2(4, 5)
+
+[node name="ZonaCaptura" type="Area2D" parent="RotadorVision" unique_id=1886130645]
+position = Vector2(-5, -13)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotadorVision/ZonaCaptura" unique_id=769132510]
+position = Vector2(4, 0)
+polygon = PackedVector2Array(3, 14, 6, 19, 23, 27, 46, 31, 46, -6, 23, -1, 6, 9)
+
+[node name="DibujoCono" type="Polygon2D" parent="RotadorVision" unique_id=513567005]
+position = Vector2(-1, -13)
+color = Color(0.7529412, 0.3764706, 0.24705882, 0.16078432)
+polygon = PackedVector2Array(4, 14, 7, 19, 23, 27, 46, 31, 49, 21, 50, 12, 49, 3, 46, -6, 24, -1, 6, 9)
+
+[connection signal="body_entered" from="RotadorVision/ZonaCaptura" to="." method="_on_zona_captura_body_entered"]

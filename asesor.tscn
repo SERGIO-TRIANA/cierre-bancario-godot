@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://dbi6bpoa0f85e"]
+
+[ext_resource type="Script" uid="uid://duoixcda8arrg" path="res://asesor.gd" id="1_bw2ae"]
+[ext_resource type="Texture2D" uid="uid://c3m78rkfj54h8" path="res://Characters/Alex/Alex_16x16.png" id="2_mh2be"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3yf8"]
+size = Vector2(8, 5)
+
+[sub_resource type="Animation" id="Animation_oos31"]
+resource_name = "Drinking"
+length = 1.2666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.43333334, 0.56666666, 0.7, 0.8333333, 0.96666664, 1.1333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [144, 145, 146, 147, 148, 149, 150, 151, 152]
+}
+
+[sub_resource type="Animation" id="Animation_8355t"]
+resource_name = "Idle_down"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.56666666, 0.7, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [42, 43, 44, 45, 46, 47]
+}
+
+[sub_resource type="Animation" id="Animation_gn8u1"]
+resource_name = "Idle_left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4666667, 0.6666667, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39, 40, 41]
+}
+
+[sub_resource type="Animation" id="Animation_smmvd"]
+resource_name = "Idle_right"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.36666667, 0.53333336, 0.7, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29]
+}
+
+[sub_resource type="Animation" id="Animation_m0u4d"]
+resource_name = "Idle_up"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.18838005, 0.3, 0.5, 0.6666667, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [30, 31, 32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_22l8w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_xgsty"]
+resource_name = "sentado"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_vjw7q"]
+resource_name = "walk_down"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.36666667, 0.53333336, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [66, 67, 68, 69, 70, 71]
+}
+
+[sub_resource type="Animation" id="Animation_civnp"]
+resource_name = "walk_left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.36666667, 0.56666666, 0.76666665, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63, 64, 65]
+}
+
+[sub_resource type="Animation" id="Animation_nbymd"]
+resource_name = "walk_right"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.13333334, 0.3, 0.53333336, 0.7, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52, 53]
+}
+
+[sub_resource type="Animation" id="Animation_mh2be"]
+resource_name = "walk_up"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [54, 55, 56, 57, 58, 59]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_civnp"]
+_data = {
+&"Drinking": SubResource("Animation_oos31"),
+&"Idle_down": SubResource("Animation_8355t"),
+&"Idle_left": SubResource("Animation_gn8u1"),
+&"Idle_right": SubResource("Animation_smmvd"),
+&"Idle_up": SubResource("Animation_m0u4d"),
+&"RESET": SubResource("Animation_22l8w"),
+&"sentado": SubResource("Animation_xgsty"),
+&"walk_down": SubResource("Animation_vjw7q"),
+&"walk_left": SubResource("Animation_civnp"),
+&"walk_right": SubResource("Animation_nbymd"),
+&"walk_up": SubResource("Animation_mh2be")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_otrat"]
+font_size = 10
+font_color = Color(1, 0.09019608, 0.11372549, 1)
+
+[node name="Asesor" type="CharacterBody2D" unique_id=1731818771]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_bw2ae")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1722020954]
+texture = ExtResource("2_mh2be")
+hframes = 24
+vframes = 7
+frame = 48
+
+[node name="TimerAccion" type="Timer" parent="." unique_id=1463574761]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=37610382]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_w3yf8")
+
+[node name="TimerEstado" type="Timer" parent="." unique_id=326579177]
+wait_time = 5.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=898629611]
+libraries/ = SubResource("AnimationLibrary_civnp")
+
+[node name="IconoDuda" type="Label" parent="." unique_id=2109143866]
+offset_left = -8.0
+offset_top = -22.0
+offset_bottom = -8.0
+text = "  ?"
+label_settings = SubResource("LabelSettings_otrat")
+
+[node name="RotadorVision" type="Node2D" parent="." unique_id=1785902756]
+
+[node name="ZonaPregunta" type="Area2D" parent="RotadorVision" unique_id=656889761]
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotadorVision/ZonaPregunta" unique_id=1475118036]
+polygon = PackedVector2Array(0, 8, 8, 0, 24, -8, 40, -16, 40, 8, 40, 32, 24, 24, 8, 16)
+
+[node name="Polygon2D" type="Polygon2D" parent="RotadorVision" unique_id=1486166652]
+color = Color(1, 0.16470589, 0.16470589, 0.45882353)
+polygon = PackedVector2Array(0, 8, 16, -8, 40, -16, 48, 8, 40, 32, 16, 24)

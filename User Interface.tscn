@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cwatngxjxhdpy"]
+
+[ext_resource type="Script" uid="uid://cwc2bgpwxhlk6" path="res://user_interface.gd" id="1_uedlk"]
+
+[node name="MenuInicio" type="Control" unique_id=1760833310]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_uedlk")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1251408680]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 200.0
+color = Color(0.16428712, 0.24565426, 0.99999934, 1)
+
+[node name="PanelPrincipal" type="VBoxContainer" parent="." unique_id=1045512054]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 249.0
+offset_bottom = 84.0
+
+[node name="Titulo" type="Label" parent="PanelPrincipal" unique_id=1199086639]
+layout_mode = 2
+text = "CIERRE BANCARIO"
+horizontal_alignment = 1
+
+[node name="Subtitulo" type="Label" parent="PanelPrincipal" unique_id=2000432562]
+layout_mode = 2
+text = "Sobrevive al horario extendido 
+y cierra la bóveda a tiempo."
+horizontal_alignment = 1
+
+[node name="BotonJugar" type="Button" parent="PanelPrincipal" unique_id=484359967]
+layout_mode = 2
+text = "Iniciar Turno"
+
+[node name="BotonInstrucciones" type="Button" parent="PanelPrincipal" unique_id=586743332]
+layout_mode = 2
+text = "Cómo Jugar"
+
+[node name="PanelInstrucciones" type="Panel" parent="." unique_id=847548219]
+layout_mode = 0
+offset_top = -176.0
+offset_right = 256.0
+
+[node name="TextoInstrucciones" type="RichTextLabel" parent="PanelInstrucciones" unique_id=1424219772]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 120.0
+text = "CONTROLES: Muévete con las Flechas o WASD.
+OBJETIVO: Recorre la sucursal, resuelve las dudas operativas y llega a la Bóveda (Sala 3) para completar el cierre antes de que se acabe el tiempo.
+CUIDADO CON:
+• Clientes Preguntones (Salas 7, 8 y 9): Evita su cono rojo de visión.
+• Asesores (Sala 5): Salen de su puesto con signo ? cuando tienen dudas.
+• Cajeros (Sala 6): Si les surge una duda, te perseguirán por la sala.
+• Aseadora (Sala 2): Su círculo rojo se activa de repente durante sus rondas."
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="BotonVolver" type="Button" parent="PanelInstrucciones" unique_id=935328230]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 128.0
+offset_right = 153.0
+offset_bottom = 159.0
+text = "Volver"
