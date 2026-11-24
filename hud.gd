@@ -20,6 +20,8 @@ signal clave_boveda_correcta
 @onready var boton_reintentar: Button = $PanelFin/BotonReintentar
 @onready var boton_menu: Button = $PanelFin/BotonMenu
 
+
+
 # Diccionario con tus coordenadas exactas del minimapa
 var posiciones_salas: Dictionary = {
 	"Sala 4": Vector2(-377, -12), # Oficina Coordinador
